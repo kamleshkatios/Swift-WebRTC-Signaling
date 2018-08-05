@@ -1,0 +1,45 @@
+//
+//
+//  Swift WebRTC Signaling
+//
+//  Created by Suresh Kamlesh on 07/26/2018.
+//
+//  Modified from the Perfect Template Project
+
+import PerfectLib
+import PerfectHTTP
+import PerfectHTTPServer
+
+// Configuration data for two example servers.
+// This example configuration shows how to launch one or more servers
+// using a configuration dictionary.
+
+let port = 8181
+
+let routes = [
+    ["method":"get", "uri":"/**",
+     "handler":PerfectHTTPServer.HTTPHandler.staticFiles,
+				 "documentRoot":"./webroot",
+				 "allowResponseFilters":true],
+    ["method":"get", "uri":"/chat", "handler":chatHandler]
+]
+
+let config = [
+    "servers": [
+        // Configuration data for one server which:
+        //	* Serves only public API routes
+            ["name":"Swift-WebRTC-Signaling",
+            "port":port,
+                "routes": routes,
+            ]
+    ]
+]
+
+
+do {    
+    // Launch the servers based on the configuration data.
+    try HTTPServer.launch(configurationData: config)
+} catch {
+    fatalError("\(error)") // fatal error launching one of the servers
+}
+
