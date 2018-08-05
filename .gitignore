@@ -9,6 +9,7 @@
 .packages_lin
 buildlinux
 Packages
+Package.resolved
 db/
 *.orig
 PADockerfile_build
