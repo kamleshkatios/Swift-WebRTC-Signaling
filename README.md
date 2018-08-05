@@ -1,5 +1,4 @@
 # SwiftWebRTCSignaling
-# Swift-WebRTC-Signaling
 
 In this example, I have implemented a demo Signaling server for WebRTC.
 
@@ -55,7 +54,7 @@ Now if you notice, Both the clients are connected with each other. Once the conn
 
 Sample html and javacript files are in webroot directory.
 
-If you wan to test the server between 2 computers change the address in the client.js file from
+If you want to test on intranet change the ip of the server in client.js file.
 
 ```
 var conn = new WebSocket('ws://localhost:8181/chat', 'chat');
